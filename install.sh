@@ -1,12 +1,15 @@
 #!/bin/bash
 
-# 1. Install OpenCode globally in every new codespace
+# Install OpenCode globally in every new codespace
 curl -fsSL https://opencode.ai/install | bash
 
-# 2. Create the global configuration directory for OpenCode
+# Install Freebuf globally in every new codespace
+npm install -g freebuff
+
+# Create the global configuration directory for OpenCode
 mkdir -p ~/.config/opencode
 
-# 3. Inject the AgentRouter / OpenRouter configuration into the global config
+# Inject the AgentRouter / OpenRouter configuration into the global config
 cat << 'EOF' > ~/.config/opencode/opencode.json
 {
   "$schema": "https://opencode.ai/config.json",
@@ -25,7 +28,7 @@ cat << 'EOF' > ~/.config/opencode/opencode.json
 }
 EOF
 
-# 4. Create the credentials file so you don't get prompted to log in
+# Create the credentials file so you don't get prompted to log in
 mkdir -p ~/.local/share/opencode
 cat << 'EOF' > ~/.local/share/opencode/auth.json
 {
